@@ -76,7 +76,7 @@ const DEFAULT_MEMBERS: TeamMember[] = [
     name: "Jose",
     role: "TBD",
     image:
-      "/Team/Jose.jpg",
+      "/Team/JOse.jpg",
     social: { linkedin: "#", twitter: "#" },
   },
   {
@@ -113,7 +113,7 @@ const DEFAULT_MEMBERS: TeamMember[] = [
   },
   {
     id: "12",
-    name: "Dr. Diogo Neves",
+    name: "Diogo",
     role: "Oral Health Advisor",
     image:
       "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop&crop=face&q=80",

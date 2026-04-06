@@ -50,3 +50,45 @@ You are a specialist in "Quiet Luxury" web design. Your goal is to create interf
 ## Code Standards
 - **Performance:** Always use `requestAnimationFrame` for custom canvas work or `framer-motion` for React-based transitions.
 - **Accessibility:** Ensure that even with fluid backgrounds, contrast ratios for text remain WCAG compliant (at least 4.5:1).
+
+# Agent Skill: Cinematic State Management (Zustand + Framer Motion)
+
+## Context
+To achieve the "Geometry-Scaling Immersion" (FLIP animation) between the main gallery and individual case studies, the application must globally sync the visual theme without relying on slow route-based re-renders.
+
+## Technical Execution: The `useVibeStore`
+- **State Engine:** Implement `zustand` to create a lightweight global store named `useVibeStore`.
+- **The Payload:** The store must track `activeBrand` (null | 'luxmetique' | 'medik8' | 'gum'), `themeColors` (background, text, accent), and `isTransitioning` (boolean).
+- **The Choreography:**
+  1. User clicks the Project Card (Anchor).
+  2. `useVibeStore` immediately broadcasts the new client's `themeColors`.
+  3. Framer Motion begins the `layoutId` scale-up of the image.
+  4. The surrounding page layout (Header, Background Canvas) listens to the Zustand store and initiates a slow, `power3.out` color interpolation to the new theme *while* the image is moving. 
+- **Constraint:** The state change must feel like a slow breath. Tie the color transitions to a Framer Motion `AnimatePresence` with a minimum duration of 1.2s.
+
+# Brand Identity Payloads (Data Reference)
+
+## Luxmetique: "Clinical Gold"
+Use this object for `useVibeStore` when the Luxmetique card is active to balance the brand with SSL’s corporate identity.
+
+```json
+{
+  "brandId": "luxmetique-001",
+  "theme": {
+    "background": "#F9F9F7", 
+    "primaryAccent": "#D4AF37",
+    "surface": "rgba(255, 255, 255, 0.8)",
+    "text": "#1A1A1A"
+  },
+  "typography": {
+    "headingFont": "Serif (High-Contrast)",
+    "letterSpacing": "-0.02em",
+    "weight": "300"
+  },
+  "motion": {
+    "transitionType": "spring",
+    "stiffness": 100,
+    "damping": 20,
+    "scalingDuration": 0.8
+  }
+}
