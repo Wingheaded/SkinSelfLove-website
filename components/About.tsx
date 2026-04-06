@@ -2,6 +2,7 @@
 
 import { ScrollReveal } from "./ScrollReveal";
 import { useLanguage } from "@/components/LanguageContext";
+import TeamShowcase from "@/components/ui/team-showcase";
 
 export function About() {
   const { t } = useLanguage();
@@ -72,6 +73,22 @@ export function About() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+
+        {/* Team showcase */}
+        <div className="mt-32 md:mt-48 pt-32 border-t border-[#1A1A1A]/5">
+          <ScrollReveal>
+            <div className="mb-16 text-center">
+              <h2 className="font-heading text-4xl leading-tight tracking-tight text-[#1A1A1A] md:text-5xl lg:text-6xl">
+                {t.about.teamTitle}
+              </h2>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <div className="flex justify-center py-20 md:py-24">
+              <TeamShowcase />
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

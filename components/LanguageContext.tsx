@@ -31,6 +31,7 @@ export const translations = {
       p2Text: "Profundo conhecimento do panorama farmacêutico português, do ambiente regulatório e das expectativas dos consumidores.",
       p3Title: "Apoio Clínico",
       p3Text: "Formação técnica dedicada e recursos profissionais para farmacêuticos e equipas clínicas de todo o país.",
+      teamTitle: "A Equipa",
     },
     portfolio: {
       label: "O Nosso Portfólio",
@@ -102,6 +103,7 @@ export const translations = {
       p2Text: "Deep understanding of the Portuguese pharmacy landscape, regulatory environment, and consumer expectations.",
       p3Title: "Clinical Support",
       p3Text: "Dedicated training and professional resources for pharmacists and clinical teams across Portugal.",
+      teamTitle: "The Team",
     },
     portfolio: {
       label: "Our Portfolio",
