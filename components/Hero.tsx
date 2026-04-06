@@ -139,11 +139,11 @@ export function Hero() {
       {/* Navigation provided by global Header */}
 
       {/* Main content — centered, weightless */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen pt-28 pb-16 px-6 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen pt-20 pb-8 px-6 text-center">
         {/* Eyebrow label */}
         <motion.p
           {...fadeUp(0.2)}
-          className="font-sans text-xs tracking-[0.3em] uppercase text-[#A9B3A1] mb-4 md:mb-6"
+          className="font-sans text-xs tracking-[0.3em] uppercase text-[#A9B3A1] mb-2 md:mb-3"
         >
           {t.hero.eyebrow}
         </motion.p>
@@ -151,10 +151,10 @@ export function Hero() {
         {/* H1 with animated word scrolling */}
         <motion.h1
           {...fadeUp(0.45)}
-          className="font-heading w-full text-5xl md:text-7xl lg:text-[clamp(4.5rem,11vw,9rem)] leading-[1.2] tracking-tight text-[#1A1A1A] max-w-full md:max-w-7xl mb-6 md:mb-8"
+          className="font-heading w-full text-4xl md:text-6xl lg:text-[clamp(3.5rem,8vw,6.5rem)] leading-[1.1] tracking-tight text-[#1A1A1A] max-w-full md:max-w-7xl mb-2 md:mb-4"
         >
-          <span className="block mb-2 md:mb-4">Skin Self Love</span>
-          <span className="relative flex w-full justify-center overflow-hidden text-center min-h-[1.6em] md:min-h-[1.8em] py-2 md:py-4 px-12">
+          <span className="block mb-1 md:mb-2 text-balance">Skin Self Love</span>
+          <span className="relative flex w-full justify-center overflow-hidden text-center min-h-[1.2em] md:min-h-[1.3em] py-1 md:py-2 px-8">
             &nbsp;
             {titles.map((title, index) => (
               <motion.span
@@ -185,13 +185,13 @@ export function Hero() {
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ duration: 1.0, ease: easeOut, delay: 0.65 }}
-          className="w-12 h-px bg-[#A9B3A1] mt-2 mb-6 origin-center"
+          className="w-12 h-px bg-[#A9B3A1] mt-1 mb-4 origin-center"
         />
 
         {/* Subtext */}
         <motion.p
           {...fadeUp(0.75)}
-          className="font-sans text-base md:text-lg leading-relaxed text-[#6b7280] max-w-xl mb-8 md:mb-10"
+          className="font-sans text-sm md:text-base leading-relaxed text-[#6b7280] max-w-xl mb-6 md:mb-8"
         >
           {t.hero.subtext}
         </motion.p>
@@ -199,7 +199,7 @@ export function Hero() {
         {/* CTAs */}
         <motion.div
           {...fadeUp(0.95)}
-          className="flex flex-col sm:flex-row items-center gap-6"
+          className="flex flex-col sm:flex-row items-center gap-4"
         >
           {/* Primary button */}
           <a
