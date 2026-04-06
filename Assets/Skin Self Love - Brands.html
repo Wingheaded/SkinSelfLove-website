@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <title>Skin Self Love - Brands</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/AlibabaSans-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/AlibabaSans-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        :root {
+            --sage-green: #A8B5A0;
+            --pristine-white: #FFFFFF;
+            --soft-grey: #FAFAFA;
+            --dark-charcoal: #1A1A1A;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --transition-slow: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--pristine-white);
+            color: var(--dark-charcoal);
+            width: 1920px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp var(--transition-slow) forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 1920px;
+            height: 100px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 120px;
+            z-index: 100;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            letter-spacing: 0.05em;
+            color: var(--dark-charcoal);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 60px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-charcoal);
+            font-size: 15px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.4s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--dark-charcoal);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            width: 1920px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(180deg, var(--soft-grey) 0%, var(--pristine-white) 100%);
+            padding-top: 100px; /* Header offset */
+        }
+
+        .hero h1 {
+            font-size: 96px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--dark-charcoal);
+        }
+
+        .hero p {
+            font-size: 22px;
+            font-weight: 300;
+            color: rgba(26, 26, 26, 0.7);
+            letter-spacing: 0.02em;
+            margin-bottom: 60px;
+            max-width: 800px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background-color: var(--sage-green);
+            color: var(--pristine-white);
+            padding: 20px 48px;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid var(--sage-green);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--sage-green);
+        }
+
+        .btn-secondary {
+            color: var(--dark-charcoal);
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 6px;
+        }
+
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(26, 26, 26, 0.3);
+            transition: background-color 0.4s ease;
+        }
+
+        .btn-secondary:hover::after {
+            background-color: var(--dark-charcoal);
+        }
+
+        /* Brands Grid */
+        .brands-section {
+            padding: 160px 120px;
+            background-color: var(--pristine-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .brand-card {
+            background: var(--soft-grey);
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-10px);
+            background: var(--pristine-white);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.04);
+            border: 1px solid rgba(26, 26, 26, 0.05);
+        }
+
+        .brand-placeholder {
+            width: 200px;
+            height: 100px;
+            background: rgba(168, 181, 160, 0.1);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--sage-green);
+            transition: all 0.8s ease;
+        }
+
+        .brand-card:hover .brand-placeholder {
+            background: transparent;
+            transform: scale(1.05);
+        }
+
+        .brand-name {
+            font-size: 24px;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+
+        .brand-desc {
+            font-size: 15px;
+            line-height: 1.6;
+            color: rgba(26, 26, 26, 0.6);
+            margin-bottom: 30px;
+        }
+
+        .brand-link {
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--sage-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .brand-card:hover .brand-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--soft-grey);
+            padding: 100px 120px 60px;
+            border-top: 1px solid rgba(26, 26, 26, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 80px;
+        }
+
+        .footer-col h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: rgba(26, 26, 26, 0.7);
+            font-size: 15px;
+            line-height: 2;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--dark-charcoal);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(26, 26, 26, 0.1);
+            color: rgba(26, 26, 26, 0.5);
+            font-size: 13px;
+            letter-spacing: 0.05em;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .social-links a {
+            color: var(--dark-charcoal);
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--sage-green);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo-text">Skin Self Love</a>
+        <nav>
+            <a href="#">About</a>
+            <a href="#" class="active">Brands</a>
+            <a href="#">Professionals</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="animate-fade-up">Clinical Elegance</h1>
+        <p class="animate-fade-up delay-1">Discover the elite dermo-cosmetic portfolio we represent, bridging rigorous medical credibility with quiet luxury.</p>
+        <div class="btn-group animate-fade-up delay-2">
+            <a href="#portfolio" class="btn-primary">Discover the Portfolio</a>
+            <a href="#contact" class="btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <section id="portfolio" class="brands-section">
+        <div class="section-header animate-fade-up">
+            <h2>Our Elite Partners</h2>
+            <p style="color: rgba(26, 26, 26, 0.6); font-size: 18px; max-width: 600px; margin: 0 auto;">Curated excellence in dermatological science and aesthetic perfection.</p>
+        </div>
+
+        <div class="brands-grid">
+            <!-- Brand 1 -->
+            <div class="brand-card animate-fade-up delay-1">
+                <div class="brand-placeholder">Medik8</div>
+                <h3 class="brand-name">Medik8</h3>
+                <p class="brand-desc">Pioneers in professional skincare, renowned for their CSA philosophy and stabilized Vitamin C formulations delivering visible anti-aging results.</p>
+                <a href="#" class="brand-link">Explore Collection <i class="ri-arrow-right-line"></i></a>
+            </div>
+
+            <!-- Brand 2 -->
+            <div class="brand-card animate-fade-up delay-2">
+                <div class="brand-placeholder">Luxmetique</div>
+                <h3 class="brand-name">Luxmetique</h3>
+                <p class="brand-desc">Advanced nutricosmetics blending high-end clinical science with daily wellness, promoting beauty from within through premium supplementation.</p>
+                <a href="#" class="brand-link">Explore Collection <i class="ri-arrow-right-line"></i></a>
+            </div>
+
+            <!-- Brand 3 -->
+            <div class="brand-card animate-fade-up delay-3">
+                <div class="brand-placeholder">Sunstar GUM</div>
+                <h3 class="brand-name">Sunstar GUM</h3>
+                <p class="brand-desc">Leading holistic oral care solutions trusted by dental professionals globally, emphasizing the vital link between oral health and overall wellbeing.</p>
+                <a href="#" class="brand-link">Explore Collection <i class="ri-arrow-right-line"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3 class="logo-text">Skin Self Love</h3>
+                <p>Portuguese Representative for<br>Elite Dermo-Cosmetic Brands</p>
+            </div>
+            <div class="footer-col">
+                <h3 style="font-family: 'Inter', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dark-charcoal); margin-bottom: 20px;">Navigation</h3>
+                <a href="#">About Us</a>
+                <a href="#">Our Brands</a>
+                <a href="#">For Professionals</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h3 style="font-family: 'Inter', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dark-charcoal); margin-bottom: 20px;">Contact</h3>
+                <p>Lisbon, Portugal</p>
+                <a href="/cdn-cgi/l/email-protection#2c45424a436c5f4745425f49404a40435a49025c58"><span class="__cf_email__" data-cfemail="51383f373e11223a383f22343d373d3e27347f2125">[email&#160;protected]</span></a>
+                <p>+351 123 456 789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Skin Self Love. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="ri-instagram-line"></i></a>
+                <a href="#"><i class="ri-linkedin-fill"></i></a>
+            </div>
+        </div>
+    </footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
