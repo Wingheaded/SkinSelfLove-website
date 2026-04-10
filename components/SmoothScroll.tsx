@@ -11,13 +11,20 @@ export function SmoothScroll() {
       touchMultiplier: 1.5,
     });
 
+    // Expose for global access if needed (e.g. scroll restoration)
+    (window as any).lenis = lenis;
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
 
-    return () => lenis.destroy();
+    return () => {
+      lenis.destroy();
+      (window as any).lenis = undefined;
+    };
+
   }, []);
 
   return null;

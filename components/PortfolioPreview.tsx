@@ -3,31 +3,36 @@
 import { motion } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
 import { useLanguage } from "@/components/LanguageContext";
+import { useVibeStore, LUXMETIQUE_PAYLOAD, MEDIK8_PAYLOAD, GUM_PAYLOAD } from "@/lib/useVibeStore";
 
 export function PortfolioPreview() {
   const { t } = useLanguage();
+  const { activeBrand, setActiveBrand, setHomeScroll } = useVibeStore();
 
   const brands = [
     {
       name: "Medik8",
+      brandId: MEDIK8_PAYLOAD.brandId,
       tagline: t.portfolio.medik8Tagline,
       description: t.portfolio.medik8Desc,
-      href: "#",
-      accent: "#A9B3A1",
+      accent: "#80897C",
+      onClick: () => { setHomeScroll(window.scrollY); setActiveBrand(MEDIK8_PAYLOAD); },
     },
     {
       name: "Luxmetique",
+      brandId: LUXMETIQUE_PAYLOAD.brandId,
       tagline: t.portfolio.luxTagline,
       description: t.portfolio.luxDesc,
-      href: "#",
-      accent: "#C8D0C4",
+      accent: "#D4AF37",
+      onClick: () => { setHomeScroll(window.scrollY); setActiveBrand(LUXMETIQUE_PAYLOAD); },
     },
     {
       name: "GUM",
+      brandId: GUM_PAYLOAD.brandId,
       tagline: t.portfolio.gumTagline,
       description: t.portfolio.gumDesc,
-      href: "#",
-      accent: "#B8C2B0",
+      accent: "#4A90E2",
+      onClick: () => { setHomeScroll(window.scrollY); setActiveBrand(GUM_PAYLOAD); },
     },
   ];
 
@@ -54,25 +59,21 @@ export function PortfolioPreview() {
           </p>
         </ScrollReveal>
 
-        {/* Asymmetrical editorial grid */}
-        <div className="mt-24 grid gap-8 md:mt-32 md:grid-cols-12 md:gap-6">
+        {/* Equal 3-Column grid */}
+        <div className="mt-24 grid gap-8 md:mt-32 md:grid-cols-3 md:gap-6 lg:gap-8">
           {brands.map((brand, i) => {
-            // Asymmetric placement: first card spans 7 cols, second 5, third 6 offset
-            const colClasses = [
-              "md:col-span-7",
-              "md:col-span-5",
-              "md:col-span-6 md:col-start-4",
-            ][i];
-
             return (
               <ScrollReveal
                 key={brand.name}
                 delay={i * 0.15}
-                className={colClasses}
+                className="h-full"
               >
-                <a
-                  href={brand.href}
-                  className="group relative block overflow-hidden bg-[#FAFAFA] p-10 transition-all duration-700 hover:bg-white hover:shadow-[0_40px_80px_rgba(0,0,0,0.04)] md:p-14"
+                <motion.div
+                  // Drop layoutId when a brand overlay is active so the
+                  // reverse-FLIP has no target — forces the opacity dissolve.
+                  layoutId={activeBrand ? undefined : `brand-bg-${brand.brandId}`}
+                  onClick={brand.onClick}
+                  className="group relative flex flex-col h-full cursor-pointer overflow-hidden bg-[#FAFAFA] p-10 transition-all duration-700 hover:bg-white hover:shadow-[0_40px_80px_rgba(0,0,0,0.04)] md:p-14"
                 >
                   {/* Brand number */}
                   <span className="font-sans text-xs tracking-[0.2em] text-[#A9B3A1]/60">
@@ -93,7 +94,7 @@ export function PortfolioPreview() {
                   <div className="my-8 h-px w-full bg-[#1A1A1A]/8" />
 
                   {/* Description */}
-                  <p className="max-w-md font-sans text-sm leading-relaxed text-[#6b7280]">
+                  <p className="max-w-md flex-1 font-sans text-sm leading-relaxed text-[#6b7280]">
                     {brand.description}
                   </p>
 
@@ -117,7 +118,7 @@ export function PortfolioPreview() {
                     className="absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full"
                     style={{ backgroundColor: brand.accent }}
                   />
-                </a>
+                </motion.div>
               </ScrollReveal>
             );
           })}

@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google"
+import { Geist, Geist_Mono, Playfair_Display, Cormorant_Garamond } from "next/font/google"
 import type { Metadata } from "next"
 
 import "./globals.css"
@@ -23,6 +23,13 @@ const playfair = Playfair_Display({
   display: "swap",
 })
 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-cormorant",
+  display: "swap",
+})
+
 export const metadata: Metadata = {
   title: "Skin Self Love Portugal | Premium Health & Wellness Brand Representative",
   description:
@@ -38,7 +45,7 @@ export default function RootLayout({
     <html
       lang="pt-PT"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, geist.variable, playfair.variable)}
+      className={cn("antialiased", fontMono.variable, geist.variable, playfair.variable, cormorant.variable)}
     >
       <body>
         <LanguageProvider>

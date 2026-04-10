@@ -92,3 +92,8 @@ Use this object for `useVibeStore` when the Luxmetique card is active to balance
     "scalingDuration": 0.8
   }
 }
+
+## Interaction Skill: The "Signature Back" Exit
+- **Logic:** When `activeBrand !== null`, morph the Top-Left logo into a "Back to Universe" breadcrumb.
+- **Physics:** Use a magnetic hover effect (distance: 20px) on this element to make it feel premium.
+- **Execution:** On click, reverse the Framer Motion `layoutId` transition to return to the scroll position of the original card.

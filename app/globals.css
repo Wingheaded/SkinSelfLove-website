@@ -124,6 +124,12 @@
   --ssl-bg: #F9F9F7;
   --ssl-text: #1A1A1A;
   --ssl-muted: #6b7280;
+
+  /* Vibe system — synced by Zustand store */
+  --vibe-bg: #F9F9F7;
+  --vibe-accent: #A9B3A1;
+  --vibe-text: #1A1A1A;
+  --vibe-surface: rgba(255, 255, 255, 0.8);
 }
 
 @layer base {
@@ -132,6 +138,7 @@
     }
   body {
     @apply bg-background text-foreground;
+    transition: background-color 1.2s ease-in-out, color 1.2s ease-in-out;
     }
   html {
     @apply font-sans;

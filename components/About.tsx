@@ -7,7 +7,12 @@ import TeamShowcase from "@/components/ui/team-showcase";
 export function About() {
   const { t } = useLanguage();
 
-  const pillars = [
+  const pillars: Array<{
+    number: string;
+    title: string;
+    text: string;
+    chips?: string[];
+  }> = [
     {
       number: "01",
       title: t.about.p1Title,
@@ -22,6 +27,7 @@ export function About() {
       number: "03",
       title: t.about.p3Title,
       text: t.about.p3Text,
+      chips: t.about.valores,
     },
   ];
 
@@ -32,7 +38,8 @@ export function About() {
     >
       <div className="mx-auto max-w-[1400px] px-8 md:px-16">
         <div className="grid gap-16 md:grid-cols-12 md:gap-8">
-          {/* Left column — headline */}
+
+          {/* ── Left column — Sobre ───────────────────────────────────────── */}
           <div className="md:col-span-5">
             <ScrollReveal>
               <p className="mb-4 font-sans text-xs tracking-[0.3em] uppercase text-[#A9B3A1]">
@@ -52,9 +59,47 @@ export function About() {
                 {t.about.desc}
               </p>
             </ScrollReveal>
+
+            {/* Know-how chips */}
+            <ScrollReveal delay={0.3}>
+              <div className="mt-10">
+                <p className="mb-3 font-sans text-xs tracking-[0.25em] uppercase text-[#A9B3A1]">
+                  {t.about.knowhowLabel}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {t.about.knowhowTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3.5 py-1.5 rounded-full bg-[#edeeea] font-sans text-xs tracking-[0.1em] text-[#2f3430]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Criteria chips */}
+            <ScrollReveal delay={0.4}>
+              <div className="mt-8">
+                <p className="mb-3 font-sans text-xs tracking-[0.25em] uppercase text-[#A9B3A1]">
+                  {t.about.criteriaLabel}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {t.about.criteriaTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3.5 py-1.5 rounded-full border border-[#A9B3A1]/40 font-sans text-xs tracking-[0.1em] text-[#2f3430]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
 
-          {/* Right column — pillars */}
+          {/* ── Right column — Missão / Visão / Valores ───────────────────── */}
           <div className="flex flex-col gap-12 md:col-span-6 md:col-start-7 md:gap-16">
             {pillars.map((pillar, i) => (
               <ScrollReveal key={pillar.number} delay={i * 0.12}>
@@ -65,9 +110,25 @@ export function About() {
                   <h3 className="mt-3 font-heading text-2xl tracking-tight text-[#1A1A1A] md:text-3xl">
                     {pillar.title}
                   </h3>
-                  <p className="mt-4 font-sans text-sm leading-relaxed text-[#6b7280]">
-                    {pillar.text}
-                  </p>
+
+                  {/* Render chips for Valores, text for Mission/Vision */}
+                  {pillar.chips ? (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {pillar.chips.map((chip) => (
+                        <span
+                          key={chip}
+                          className="px-3.5 py-1.5 rounded-full bg-[#edeeea] font-sans text-xs tracking-[0.1em] text-[#2f3430]"
+                        >
+                          {chip}
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="mt-4 font-sans text-sm leading-relaxed text-[#6b7280]">
+                      {pillar.text}
+                    </p>
+                  )}
+
                   <div className="mt-6 h-px w-full bg-[#1A1A1A]/6" />
                 </div>
               </ScrollReveal>
@@ -75,7 +136,7 @@ export function About() {
           </div>
         </div>
 
-        {/* Team showcase */}
+        {/* ── Team showcase ─────────────────────────────────────────────────── */}
         <div className="mt-32 md:mt-48 pt-32 border-t border-[#1A1A1A]/5">
           <ScrollReveal>
             <div className="mb-16 text-center">
