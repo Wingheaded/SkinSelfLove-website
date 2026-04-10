@@ -6,6 +6,7 @@ import { PortfolioPreview } from "@/components/PortfolioPreview";
 import { About } from "@/components/About";
 import { Professionals } from "@/components/Professionals";
 import { Contact } from "@/components/Contact";
+import { TestimonialsSection } from "@/components/ui/clean-testimonial";
 import { LuxmetiqueImmersion } from "@/components/LuxmetiqueImmersion";
 import { Medik8Immersion } from "@/components/Medik8Immersion";
 import { GumImmersion } from "@/components/GumImmersion";
@@ -46,6 +47,7 @@ export default function Page() {
         <PortfolioPreview />
         <About />
         <Professionals />
+        <TestimonialsSection />
         <Contact />
       </main>
 
